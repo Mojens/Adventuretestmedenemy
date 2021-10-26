@@ -3,18 +3,23 @@ import java.util.Scanner;
 public class Adventure {
   public static void main(String[] args) {
     Map map = new Map(); //Sets the map in a 3x3 grid.
+    Weapon wep = new Weapon("","",0);
     Count counter = new Count();
+
+    map.setEnemy1StartRoom(map.getEndRoom());
+    Enemy enemy1 = new Enemy("Mette Frederiksen",70, wep.dagger, map.getEnemy1StartRoom());
+
+
 
 
     Command.startInfo();
-
     Scanner scanner = new Scanner(System.in);
-
+    int playerHealth = 100;
     //Prompts the user to enter a name
     System.out.print("Please enter your name: ");
     String userName = scanner.nextLine();
     //Creates the player instance with a name and their starting position
-    Player player = new Player(userName, map.getStartRoom());
+    Player player = new Player(userName, map.getStartRoom(),playerHealth);
     System.out.println("Well hello "+userName +"! Lets get this game started!");
     System.out.println("A mechanical noise is filling your ears and it feels like the ground beneath is moving.. Oh! That's right. You are on Mo's Space Station!\nWhy don't you have a look around?");
 
@@ -31,6 +36,9 @@ public class Adventure {
       Command command = new Command(player);
       //Calls the go method in the Command class which evaluates the user's command
       command.go(userInput, player.getCurrentRoom(), map.getEndRoom());
+      if (map.getEnemy1StartRoom()== player.getCurrentRoom()){
+        System.out.println(enemy1);
+      }
     }
 
   }

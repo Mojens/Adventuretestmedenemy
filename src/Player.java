@@ -4,10 +4,13 @@ public class Player {
   private String name;
   private ArrayList<Item> inventory;
   private Room currentRoom;
+  private int health;
 
-  public Player(String name, Room startPosition) {
+
+  public Player(String name, Room startPosition, int health) {
     this.setName(name);
     this.setCurrentRoom(startPosition, false);
+    this.health = health;
     this.inventory = new ArrayList<>();
   }
 

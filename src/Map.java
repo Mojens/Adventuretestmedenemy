@@ -1,6 +1,7 @@
 public class Map {
   private Room startRoom;
   private Room endRoom;
+  private Room enemy1StartRoom;
 
   //Constructor calls method that sets up a 3x3 grid map, later it might be able to set up different maps depending on user input.
   public Map() {
@@ -66,5 +67,11 @@ public class Map {
 
   public Room getEndRoom() {
     return this.endRoom;
+  }
+  public void setEnemy1StartRoom(Room enemy1StartRoom1){
+    this.enemy1StartRoom = enemy1StartRoom;
+  }
+  public Room getEnemy1StartRoom(){
+    return enemy1StartRoom;
   }
 }
